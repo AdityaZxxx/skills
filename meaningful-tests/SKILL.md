@@ -15,16 +15,16 @@ A test states the intended behaviour, then asserts it. The assertion names the o
 - Write: "Given an empty cart, checking out yields a confirmation and zero orders."
 - Avoid: "Given the current `checkout()` implementation, it returns this object."
 
-The second form is the one failure this skill guards against — a **mirror test**: it restates whatever the implementation happens to return. It passes by construction and pins nothing, because the code is the only source of the expected value. The expected value must come from an independent source: a known-good literal, a worked example, the spec.
+The second form is the one failure this skill guards against: a **mirror test** that restates whatever the implementation happens to return. It passes by construction and pins nothing, because the code is the only source of the expected value. The expected value must come from an independent source: a known-good literal, a worked example, the spec.
 
 ## The gate
 
-Write a test only to lock an **intentional behaviour worth keeping stable** — a hand-written contract, an invariant, a regression that cost real time. Skip a test whose correctness is already guaranteed elsewhere (the platform, framework, compiler, or build system), or one that would be a mirror test:
+Write a test only to lock an **intentional behaviour worth keeping stable**: a hand-written contract, an invariant, a regression that cost real time. Skip a test whose correctness is already guaranteed elsewhere (the platform, framework, compiler, or build system), or one that would be a mirror test:
 
 - A static asset responds 200.
 - An imported image exists at a known path.
 - A constant equals the literal it was defined with.
-- A wrapper calls another function once — *unless that call is itself a contract to pin* (a side effect, a retry, a dedupe).
+- A wrapper calls another function once, *unless that call is itself a contract to pin* (a side effect, a retry, a dedupe).
 
 The presence of `noise-light.png` is not meaningful product behaviour; a `GET /noise-light.png → 200` test is a mirror test.
 
