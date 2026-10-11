@@ -1,6 +1,6 @@
 ---
 name: load-bearing-comments
-description: A comment earns its place only when it carries a why the code cannot state. Use when writing, keeping, or editing any comment (inline, doc comment, TODO, suppression directive, magic-number note); when deciding whether a line needs one; when reviewing or cleaning up existing comments; or when asked why a comment is there, or to strip comment slop.
+description: A comment earns its place only when it carries a why the code cannot state. Use when writing, keeping, or editing any comment (inline, doc comment, TODO, suppression directive, magic-number note); when deciding whether a line needs one; when reviewing or cleaning up existing comments; or when asked why a comment is there, or to strip comment slop (redundant or AI-patterned).
 license: MIT
 ---
 
@@ -42,6 +42,8 @@ Surviving is not licence to ramble.
 - One line, two at the outside.
 - The reason, not the mechanism. The code already states what happens.
 - Say the specific thing. "30s to match the backup SLA" beats "short timeout".
+- Say it in plain words. Slop is redundancy inside the sentence: "ensure", "leverage", "utilize" spend characters without carrying the why, and "validating the input, ensuring integrity across the flow" joins two claims to one verb. Write the one claim that matters, with the plainer word.
+- Sentence case, straight quotes, no decorative emoji, and no em dashes: use a comma or a period instead.
 
 ## Behaviour, not provenance
 
@@ -77,4 +79,4 @@ A comment in the code you are editing is in scope. Delete the ones that fail the
 
 **Reviewing:** enumerate every comment in the diff, classify each as keep, update, or delete, then act on that verdict. Do not classify from the comment alone: read the code it sits on, since redundancy is a relation between the two.
 
-Completion criterion: every comment in the diff either carries a why, or is gone.
+Completion criterion: every comment in the diff either carries a why in plain words, or is gone.
