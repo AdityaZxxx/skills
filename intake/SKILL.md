@@ -38,7 +38,7 @@ Run intake when at least one open decision needs a human. Skip it when the work 
 
 ## Playback
 
-Before any code: restate the goals, scope, settled decisions, definition of done, and proof plan in your own words. The human confirms or corrects. A correction reopens the branch it touches, not the whole interview. Intake is not done until playback passes; agreement you assumed is disagreement you will discover in review.
+Before any code: restate the goals, scope, settled decisions, definition of done, and proof plan in your own words. The human confirms or corrects. A correction reopens the branch it touches, not the whole interview. In a live channel, stop and wait for that confirmation. In an async channel, end the turn with the restatement and let the confirmation arrive as the next message; build past playback without a confirmation only when the human has explicitly pre-authorised it, and then mark every agent default as vetoable in the restatement. Intake is not done until playback passes; agreement you assumed is disagreement you will discover in review.
 
 ## The spec
 
