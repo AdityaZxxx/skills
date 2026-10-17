@@ -21,4 +21,17 @@ while IFS= read -r f; do
   if grep -qP '[\x{2014}\x{2013}]' "$f"; then echo "em/en dash in: $f"; fail=1; fi
 done < <(find . -name '*.md' -not -path './.git/*' -type f)
 
+# Frontmatter must be valid YAML: the skills installer refuses a skill whose
+# description carries an unquoted colon followed by a space.
+fm_check() {
+  if command -v python3 >/dev/null 2>&1 && python3 -c 'import yaml' >/dev/null 2>&1; then
+    awk '/^---$/{c++; next} c==1' "$1" | python3 -c 'import sys, yaml; yaml.safe_load(sys.stdin.read())' >/dev/null 2>&1
+  else
+    ! awk '/^---$/{c++; next} c==1' "$1" | grep -qE "^[A-Za-z-]+: [^'\"].*: "
+  fi
+}
+for f in */SKILL.md; do
+  fm_check "$f" || { echo "invalid frontmatter: $f"; fail=1; }
+done
+
 exit $fail
