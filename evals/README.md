@@ -4,7 +4,11 @@ Behavioural A/B tests for the skills in this repo. A skill change is not done un
 
 ## The fixture
 
-`fixture/` is a frozen TypeScript orders system planted with four smells the skills target: a shallow pass-through wrapper (`src/utils/money.ts`), a welded dependency (`OrderService` constructs its own `StripeGateway`), validation scattered through business logic, and status boolean soup. `fixture/TASK.md` asks for refund support with offline-testable rules, a second provider next quarter, and auditable attempts: constraints that quietly reward deep design without naming any skill's vocabulary. Freeze means freeze: add new fixtures alongside it, never edit it in place.
+`fixture/` is a frozen TypeScript orders system planted with four smells the skills target: a shallow pass-through wrapper (`src/utils/money.ts`), a welded dependency (`OrderService` constructs its own `StripeGateway`), validation scattered through business logic, and status boolean soup. `fixture/TASK.md` asks for refund support with offline-testable rules, a second provider next quarter, and auditable attempts: constraints that quietly reward deep design without naming any skill's vocabulary.
+
+`fixture-intake/` is the second fixture: a fuzzy feature task (invites) whose open decisions are deliberately unspecified, for testing pre-build skills. Its product owner answer script lives in `ANSWERS-intake.md` (harness material, never copied into run dirs: the human answers via session continuation, and uncovered questions get "use your default").
+
+Freeze means freeze: add new fixtures alongside, never edit one in place.
 
 ## Running an eval
 
@@ -30,5 +34,8 @@ Classify every change to an existing public shape: **preserved** (old shape stil
 - **Invocation surface beats library membership.** pstack's anti-silence principles sat in the injected library and never fired (citation-only, scope-gated); Matt's one declaration came from reporting culture, not from a gate that checks compatibility. Model-invoked discipline skills with trigger descriptions run on every code-touching task without being summoned.
 - **Deepening and compatibility trade off.** The deepest result broke most, the most compatible deepened least. A stack needs both disciplines reachable at once.
 - **Verify judge claims against the artifacts.** One factual error caught and corrected in round 1 alone.
+- **Intake changed the behaviour it targets (intake round).** With the skill, the agent stopped before building, asked three decision-shaped questions with defaults and concrete scenarios, honoured both overrides of its own defaults, and routed decisions to SPEC, a decision ledger, named constants, a type-enforced status, and rerunnable tests. The blind judge, checking both trees against the owner's requirement notes, scored 9/9 coverage for the intake arm against 4 full plus 3 partial or missing for the control, which guessed member-wide invites, no expiry, and no cap, and added an unrequested decline flow.
+- **Found gap in intake: playback did not bind in async flows.** Both intake runs compressed playback into "vetoable at review" instead of waiting for confirmation. Patched in the skill: the playback section now states its interaction contract explicitly (async means the restatement ends the turn and the confirmation arrives as the next message).
+- **Harness lessons for evals.** Interview-following agents in background subagents get cancelled when they try to prompt interactively, so the eval contract is "write the questions in your reply and stop." Answer scripts are harness material, never shipped inside run dirs: a leaked script turned a round into a twin test of "the repo ships its decisions", which both arms honoured without re-asking.
 
 One trial per arm is directional, not statistical. Injected skill subsets approximate a harness; expect real-world effect sizes smaller than eval effect sizes. Round narratives belong in git history, not here.

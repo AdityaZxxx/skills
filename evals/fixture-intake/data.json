@@ -1,0 +1,9 @@
+{
+  "users": [
+    { "id": "usr_1", "name": "Ada", "email": "ada@example.com" },
+    { "id": "usr_2", "name": "Grace", "email": "grace@example.com" }
+  ],
+  "workspaces": [
+    { "id": "ws_1", "name": "Launch", "ownerUserId": "usr_1", "memberUserIds": ["usr_1"] }
+  ]
+}
