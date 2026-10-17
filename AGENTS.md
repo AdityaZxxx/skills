@@ -1,1 +1,3 @@
 No em-dashes anywhere in this repo's prose (SKILL.md files, docs, README.md, CHANGELOG.md, ADRs, changesets, code comments). Where a sentence reaches for one, rewrite it instead with a comma, colon, period, parentheses, or a conjunction, whichever the sentence actually wants; never do a blind character substitution.
+
+Every directory with a SKILL.md has a bold bullet in README.md, and every bold skill bullet in README.md points at a directory with a SKILL.md. When one skill's judgment depends on another's, cite it by name in prose rather than restating it. Run scripts/check-repo.sh after adding, renaming, or removing a skill; it enforces both this and the em-dash rule.
