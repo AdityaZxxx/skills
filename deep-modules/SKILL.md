@@ -1,6 +1,6 @@
 ---
 name: deep-modules
-description: Design deep modules when writing or restructuring code: a small interface hiding a large amount of behaviour, at a seam chosen on purpose. Use when creating a module, shaping or extracting an interface, deciding where a seam goes, wrapping a dependency, making code testable, or when asked to architect, design, or structure code.
+description: Design deep modules when writing or restructuring code. A small interface hides a large amount of behaviour, at a seam chosen on purpose. Use when creating a module, shaping or extracting an interface, deciding where a seam goes, wrapping a dependency, making code testable, or when asked to architect, design, or structure code.
 license: MIT
 ---
 

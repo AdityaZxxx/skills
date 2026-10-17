@@ -1,6 +1,6 @@
 ---
 name: declared-breaks
-description: Treat any change to an existing public shape as a declared break: preserve compatibility, migrate callers in the same change, or flag the break with its blast radius. Use when editing a signature, field, data shape, log or event format, or configuration that existing callers depend on; when replacing a representation; or when a refactor outgrows the shape it started from.
+description: Treat any change to an existing public shape as a declared break. Preserve compatibility, migrate callers in the same change, or flag the break with its blast radius. Use when editing a signature, field, data shape, log or event format, or configuration that existing callers depend on; when replacing a representation; or when a refactor outgrows the shape it started from.
 license: MIT
 ---
 
