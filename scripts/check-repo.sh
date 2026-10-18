@@ -34,4 +34,13 @@ for f in */SKILL.md; do
   fm_check "$f" || { echo "invalid frontmatter: $f"; fail=1; }
 done
 
+# Frontmatter identity: name matches the directory, license is declared.
+for d in */; do
+  d=${d%/}
+  [ -f "$d/SKILL.md" ] || continue
+  name=$(awk -F': ' '/^name:/{print $2; exit}' "$d/SKILL.md")
+  [ "$name" = "$d" ] || { echo "frontmatter name mismatch: $d/SKILL.md says '$name'"; fail=1; }
+  grep -q '^license:' "$d/SKILL.md" || { echo "missing license field: $d/SKILL.md"; fail=1; }
+done
+
 exit $fail
