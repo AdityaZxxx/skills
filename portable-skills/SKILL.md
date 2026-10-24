@@ -30,6 +30,10 @@ Anything that must not drift belongs outside the prose: a check script, a type, 
 
 Citations between skills degrade gracefully: restate the cited principle in one clause so a model that never loaded the cited skill still functions. A citation is additive context, never a load-bearing dependency. A distributed skill never references repo-internal paths, since the reader's checkout is not this one.
 
+## The carrier cannot rot
+
+Distinguish what a document claims. A procedure claims how work should run, and the maintenance loop re-verifies it. A state claim ("these are the decisions", "this is the inventory") competes with sources that already hold the truth: the code, the types, the checks, and git history. Those sources cannot disagree with themselves; the claim drifts the moment they move. A state claim earns a file only with a generator that rebuilds it from its source and a check that fails on drift. Otherwise route the content into the sources themselves: structure, a failing check, a colocated comment, a commit message body. When in doubt, write no file and put the content where it cannot rot.
+
 ## The maintenance loop
 
 Skills stay good by re-verifying the function, not by rewriting the prose. When a new model or harness arrives, rerun the repo's evals with that model as the worker. The function either holds, or the eval shows where it broke: routing (fix the description) or execution (fix the body). Patch minimally at the break and leave the rest alone.
