@@ -23,7 +23,7 @@ The test: *would a competent engineer with full context decide this the same way
 
 ## The gate
 
-Run intake when at least one open decision needs a human. Skip it when the work is fully specified or trivial; interviewing for ceremony is the tax this skill exists to avoid. And never ask what memory already answers: check the repo's conventions, its decision ledger, and the installed skills first. A question the repo has already settled is noise, and noise trains the human to stop answering.
+Run intake when at least one open decision needs a human. Skip it when the work is fully specified or trivial; interviewing for ceremony is the tax this skill exists to avoid. And never ask what memory already answers: check the repo's conventions, its commit history, and the installed skills first. A question the repo has already settled is noise, and noise trains the human to stop answering.
 
 ## The interview
 
@@ -42,18 +42,19 @@ Before any code: restate the goals, scope, settled decisions, definition of done
 
 ## The spec
 
-Write the smallest artifact an executor agent could build from: goals, scope (in and out), the settled decisions with their whys, definition of done, and proof plan. One markdown file, placed by the repo's convention. The spec is a work order, not documentation: if a sentence would not change what the executor does, cut it.
+State the smallest artifact an executor agent could build from: goals, scope (in and out), the settled decisions with their whys, definition of done, and proof plan. State it where the work will read it: in the conversation when the work fits one session, in the tracker or the pull request body when it crosses sessions. Never a markdown file in the repo: a file claiming the project's current state copies what the code and the history already hold, and the copy is the part that rots. The spec is a work order, not documentation: if a sentence would not change what the executor does, cut it.
 
 ## Routing decisions
 
-A settled decision that is not routed will be revisited, and re-asking a settled question spends the trust that makes the whole loop work. Route each one inline, while it is fresh:
+A settled decision that is not routed will be revisited, and re-asking a settled question spends the trust that makes the whole loop work. Route each one inline, while it is fresh, and route it to a carrier that cannot rot: structure, a check that fails, a test, or git history. A prose file claiming the project's current state is a second copy of what the code and history already hold; it drifts, and a drifted carrier is worse than none.
 
 - **Generalizes beyond this project** → propose a skill or an AGENTS.md rule.
 - **Constrains code** → structure where possible (a type, a check that fails), else a colocated rationale per **load-bearing-comments**.
-- **Project-scoped policy** → one line in the project's decision ledger: date, decision, rejected alternative, why.
+- **Project-scoped policy** → the body of the commit that implements it: one `Rejected:` line naming the alternative and the why. `git log --grep` is then the decision ledger, and history cannot disagree with the code it produced.
+- **Leaves live residue** (deferred work, dead weight awaiting a migration) → the tracker, as an issue: staying open is correct behaviour there, and closing is a real event.
 - **Defines proof** → a script or verification skill that reruns the check.
 
-Retroactive memory rots. Routing at decision time is the one habit this skill enforces without exception.
+Routing at decision time is the one habit this skill enforces without exception.
 
 ## Late decisions
 
